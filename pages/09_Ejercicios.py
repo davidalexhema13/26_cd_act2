@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(page_title="Texto y Visualización", page_icon="📜")
+
 st.subheader("Ejercicio 1")
 
 nombre = st.text_input("Diga su nombre:")
@@ -190,7 +192,7 @@ st.divider()
 
 
 
-st.subheader("Ejercicio ")
+st.subheader("Ejercicio 8 ")
 
 import random
 
