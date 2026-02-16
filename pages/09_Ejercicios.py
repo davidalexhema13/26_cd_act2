@@ -153,6 +153,7 @@ st.divider()
 
 
 
+
 st.subheader("Ejercicio 7")
 
 
@@ -165,19 +166,33 @@ producto = st.text_input("Ingrese un producto:")
 
 col1, col2 = st.columns(2)
 
+
 with col1:
     if st.button("Agregar"):
-        if producto != "":
+        if producto.strip() != "":
             st.session_state.lista_compras.append(producto)
+            st.success("Producto agregado")  
         else:
-            st.warning("Ingrese un producto válido")
+            st.warning("Debe escribir un producto antes de agregar")
+
 
 with col2:
     if st.button("Limpiar Lista"):
         st.session_state.lista_compras = []
+        st.info("Lista limpiada")
 
 
-st.write("producto agregadoo")
+st.write(" Productos en la lista:")
+
+if st.session_state.lista_compras:
+    for i, item in enumerate(st.session_state.lista_compras, start=1):
+        st.write(f"{i}. {item}")
+else:
+    st.write("La lista está vacía")
+
+st.divider()
+
+
 
 if st.session_state.lista_compras:
     for i, item in enumerate(st.session_state.lista_compras, start=1):
